@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-payments
+  labels:
+    app: event-payments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-payments
+  template:
+    metadata:
+      labels:
+        app: event-payments
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: event-payments
+          image: ghcr.io/leandrodalbo/event-payments:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
