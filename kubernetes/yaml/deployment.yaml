@@ -19,6 +19,6 @@ spec:
       containers:
         - name: event-payments
           image: ghcr.io/leandrodalbo/event-payments:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
